@@ -19,6 +19,7 @@
             }
             base.Dispose(disposing);
         }
+        //
 
         #region Windows Form Designer generated code
 
@@ -34,7 +35,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 606);
+            this.ClientSize = new System.Drawing.Size(1078, 628);
             this.Name = "Deklaracja";
             this.Text = "Deklaracja";
             this.ResumeLayout(false);
