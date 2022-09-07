@@ -64,8 +64,13 @@
             this.checkBoxPisemny = new System.Windows.Forms.CheckBox();
             this.checkBoxPraktyczny = new System.Windows.Forms.CheckBox();
             this.buttonZatwierdz = new System.Windows.Forms.Button();
+            this.buttonWyczysc = new System.Windows.Forms.Button();
+            this.buttonZapisz = new System.Windows.Forms.Button();
+            this.comboBoxTermin = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxDaneUcznia.SuspendLayout();
             this.groupBoxAdres.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -114,7 +119,7 @@
             // 
             // MiejsceEditBox
             // 
-            this.MiejsceEditBox.Location = new System.Drawing.Point(544, 127);
+            this.MiejsceEditBox.Location = new System.Drawing.Point(551, 127);
             this.MiejsceEditBox.Name = "MiejsceEditBox";
             this.MiejsceEditBox.Size = new System.Drawing.Size(299, 31);
             this.MiejsceEditBox.TabIndex = 7;
@@ -343,7 +348,7 @@
             // radioButtonPierw
             // 
             this.radioButtonPierw.AutoSize = true;
-            this.radioButtonPierw.Location = new System.Drawing.Point(175, 775);
+            this.radioButtonPierw.Location = new System.Drawing.Point(21, 47);
             this.radioButtonPierw.Name = "radioButtonPierw";
             this.radioButtonPierw.Size = new System.Drawing.Size(160, 29);
             this.radioButtonPierw.TabIndex = 10;
@@ -355,7 +360,7 @@
             // radioButtonKolejny
             // 
             this.radioButtonKolejny.AutoSize = true;
-            this.radioButtonKolejny.Location = new System.Drawing.Point(398, 775);
+            this.radioButtonKolejny.Location = new System.Drawing.Point(221, 49);
             this.radioButtonKolejny.Name = "radioButtonKolejny";
             this.radioButtonKolejny.Size = new System.Drawing.Size(148, 29);
             this.radioButtonKolejny.TabIndex = 11;
@@ -377,32 +382,74 @@
             // checkBoxPraktyczny
             // 
             this.checkBoxPraktyczny.AutoSize = true;
-            this.checkBoxPraktyczny.Location = new System.Drawing.Point(752, 776);
+            this.checkBoxPraktyczny.Location = new System.Drawing.Point(736, 775);
             this.checkBoxPraktyczny.Name = "checkBoxPraktyczny";
             this.checkBoxPraktyczny.Size = new System.Drawing.Size(127, 29);
             this.checkBoxPraktyczny.TabIndex = 13;
             this.checkBoxPraktyczny.Text = "Praktyczny ";
             this.checkBoxPraktyczny.UseVisualStyleBackColor = true;
+            this.checkBoxPraktyczny.CheckedChanged += new System.EventHandler(this.checkBoxPraktyczny_CheckedChanged);
             // 
             // buttonZatwierdz
             // 
             this.buttonZatwierdz.Location = new System.Drawing.Point(607, 876);
             this.buttonZatwierdz.Name = "buttonZatwierdz";
-            this.buttonZatwierdz.Size = new System.Drawing.Size(112, 34);
+            this.buttonZatwierdz.Size = new System.Drawing.Size(256, 34);
             this.buttonZatwierdz.TabIndex = 14;
             this.buttonZatwierdz.Text = "Zatwierdź";
             this.buttonZatwierdz.UseVisualStyleBackColor = true;
+            // 
+            // buttonWyczysc
+            // 
+            this.buttonWyczysc.Location = new System.Drawing.Point(972, 876);
+            this.buttonWyczysc.Name = "buttonWyczysc";
+            this.buttonWyczysc.Size = new System.Drawing.Size(256, 34);
+            this.buttonWyczysc.TabIndex = 15;
+            this.buttonWyczysc.Text = "Wyczyść";
+            this.buttonWyczysc.UseVisualStyleBackColor = true;
+            // 
+            // buttonZapisz
+            // 
+            this.buttonZapisz.Location = new System.Drawing.Point(1320, 876);
+            this.buttonZapisz.Name = "buttonZapisz";
+            this.buttonZapisz.Size = new System.Drawing.Size(256, 34);
+            this.buttonZapisz.TabIndex = 16;
+            this.buttonZapisz.Text = "Zapisz";
+            this.buttonZapisz.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxTermin
+            // 
+            this.comboBoxTermin.FormattingEnabled = true;
+            this.comboBoxTermin.Items.AddRange(new object[] {
+            "Styczeń",
+            "Czerwiec"});
+            this.comboBoxTermin.Location = new System.Drawing.Point(490, 598);
+            this.comboBoxTermin.Name = "comboBoxTermin";
+            this.comboBoxTermin.Size = new System.Drawing.Size(182, 33);
+            this.comboBoxTermin.TabIndex = 17;
+            this.comboBoxTermin.SelectedIndexChanged += new System.EventHandler(this.comboBoxTermin_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButtonPierw);
+            this.panel1.Controls.Add(this.radioButtonKolejny);
+            this.panel1.Location = new System.Drawing.Point(153, 726);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(393, 150);
+            this.panel1.TabIndex = 18;
             // 
             // Deklaracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1648, 978);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.comboBoxTermin);
+            this.Controls.Add(this.buttonZapisz);
+            this.Controls.Add(this.buttonWyczysc);
             this.Controls.Add(this.buttonZatwierdz);
             this.Controls.Add(this.checkBoxPraktyczny);
             this.Controls.Add(this.checkBoxPisemny);
-            this.Controls.Add(this.radioButtonKolejny);
-            this.Controls.Add(this.radioButtonPierw);
             this.Controls.Add(this.radioButtonProg);
             this.Controls.Add(this.RadioButtonInf);
             this.Controls.Add(this.listView1);
@@ -421,6 +468,8 @@
             this.groupBoxDaneUcznia.PerformLayout();
             this.groupBoxAdres.ResumeLayout(false);
             this.groupBoxAdres.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,5 +511,9 @@
         private CheckBox checkBoxPisemny;
         private CheckBox checkBoxPraktyczny;
         private Button buttonZatwierdz;
+        private Button buttonWyczysc;
+        private Button buttonZapisz;
+        private ComboBox comboBoxTermin;
+        private Panel panel1;
     }
 }

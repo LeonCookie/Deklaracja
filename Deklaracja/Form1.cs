@@ -75,5 +75,16 @@ namespace Deklaracja
         {
 
         }
+
+        private void checkBoxPraktyczny_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxTermin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxTermin.Items.Add("styczeñ");
+            comboBoxTermin.Items.Add("czerwiec");
+        }
     }
 }
