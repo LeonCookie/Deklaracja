@@ -121,6 +121,7 @@
             // 
             // MiejsceEditBox
             // 
+            this.MiejsceEditBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.MiejsceEditBox.Location = new System.Drawing.Point(551, 127);
             this.MiejsceEditBox.Name = "MiejsceEditBox";
             this.MiejsceEditBox.Size = new System.Drawing.Size(299, 31);
@@ -137,6 +138,7 @@
             // 
             // ImieEditBox
             // 
+            this.ImieEditBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.ImieEditBox.Location = new System.Drawing.Point(322, 83);
             this.ImieEditBox.Name = "ImieEditBox";
             this.ImieEditBox.Size = new System.Drawing.Size(528, 31);
@@ -144,6 +146,7 @@
             // 
             // NazwiskoEditBox
             // 
+            this.NazwiskoEditBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.NazwiskoEditBox.Location = new System.Drawing.Point(323, 43);
             this.NazwiskoEditBox.Name = "NazwiskoEditBox";
             this.NazwiskoEditBox.Size = new System.Drawing.Size(528, 31);
@@ -223,6 +226,7 @@
             // 
             // pocztaEditBox
             // 
+            this.pocztaEditBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.pocztaEditBox.Location = new System.Drawing.Point(478, 123);
             this.pocztaEditBox.Name = "pocztaEditBox";
             this.pocztaEditBox.Size = new System.Drawing.Size(372, 31);
@@ -237,6 +241,7 @@
             // 
             // UlicaEditBox
             // 
+            this.UlicaEditBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.UlicaEditBox.Location = new System.Drawing.Point(323, 86);
             this.UlicaEditBox.Name = "UlicaEditBox";
             this.UlicaEditBox.Size = new System.Drawing.Size(527, 31);
@@ -244,6 +249,7 @@
             // 
             // MiejscEditBox
             // 
+            this.MiejscEditBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.MiejscEditBox.Location = new System.Drawing.Point(323, 42);
             this.MiejscEditBox.Name = "MiejscEditBox";
             this.MiejscEditBox.Size = new System.Drawing.Size(528, 31);
@@ -450,7 +456,6 @@
             // 
             // textBoxWyswietl
             // 
-            this.textBoxWyswietl.Enabled = false;
             this.textBoxWyswietl.Location = new System.Drawing.Point(1017, 36);
             this.textBoxWyswietl.MaximumSize = new System.Drawing.Size(600, 570);
             this.textBoxWyswietl.MinimumSize = new System.Drawing.Size(600, 850);
