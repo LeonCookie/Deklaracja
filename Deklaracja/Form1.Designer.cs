@@ -70,6 +70,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxRodzaj = new System.Windows.Forms.ComboBox();
             this.textBoxWyswietl = new System.Windows.Forms.TextBox();
+            this.labelNazwaEgzaminu = new System.Windows.Forms.Label();
             this.groupBoxDaneUcznia.SuspendLayout();
             this.groupBoxAdres.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -118,6 +119,7 @@
             this.PeselEditBox.Size = new System.Drawing.Size(223, 31);
             this.PeselEditBox.TabIndex = 8;
             this.PeselEditBox.TextChanged += new System.EventHandler(this.PeselEditBox_TextChanged);
+            this.PeselEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEditBox_KeyPress);
             // 
             // MiejsceEditBox
             // 
@@ -135,6 +137,7 @@
             this.DataEditBox.Size = new System.Drawing.Size(148, 31);
             this.DataEditBox.TabIndex = 6;
             this.DataEditBox.TextChanged += new System.EventHandler(this.DataEditBox_TextChanged);
+            this.DataEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEditBox_KeyPress);
             // 
             // ImieEditBox
             // 
@@ -238,6 +241,7 @@
             this.kodPocztowyEditBox.Name = "kodPocztowyEditBox";
             this.kodPocztowyEditBox.Size = new System.Drawing.Size(118, 31);
             this.kodPocztowyEditBox.TabIndex = 11;
+            this.kodPocztowyEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEditBox_KeyPress);
             // 
             // UlicaEditBox
             // 
@@ -340,6 +344,7 @@
             this.RadioButtonInf.TabStop = true;
             this.RadioButtonInf.Text = "technik informatyk";
             this.RadioButtonInf.UseVisualStyleBackColor = true;
+            this.RadioButtonInf.CheckedChanged += new System.EventHandler(this.RadioButtonInf_CheckedChanged);
             // 
             // radioButtonProg
             // 
@@ -448,11 +453,13 @@
             // 
             // comboBoxRodzaj
             // 
+            this.comboBoxRodzaj.Enabled = false;
             this.comboBoxRodzaj.FormattingEnabled = true;
             this.comboBoxRodzaj.Location = new System.Drawing.Point(158, 719);
             this.comboBoxRodzaj.Name = "comboBoxRodzaj";
             this.comboBoxRodzaj.Size = new System.Drawing.Size(182, 33);
             this.comboBoxRodzaj.TabIndex = 19;
+            this.comboBoxRodzaj.SelectedIndexChanged += new System.EventHandler(this.comboBoxRodzaj_SelectedIndexChanged);
             // 
             // textBoxWyswietl
             // 
@@ -464,11 +471,21 @@
             this.textBoxWyswietl.Size = new System.Drawing.Size(600, 850);
             this.textBoxWyswietl.TabIndex = 20;
             // 
+            // labelNazwaEgzaminu
+            // 
+            this.labelNazwaEgzaminu.AutoSize = true;
+            this.labelNazwaEgzaminu.Location = new System.Drawing.Point(379, 727);
+            this.labelNazwaEgzaminu.MaximumSize = new System.Drawing.Size(500, 0);
+            this.labelNazwaEgzaminu.Name = "labelNazwaEgzaminu";
+            this.labelNazwaEgzaminu.Size = new System.Drawing.Size(0, 25);
+            this.labelNazwaEgzaminu.TabIndex = 21;
+            // 
             // Deklaracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1648, 978);
+            this.Controls.Add(this.labelNazwaEgzaminu);
             this.Controls.Add(this.textBoxWyswietl);
             this.Controls.Add(this.comboBoxRodzaj);
             this.Controls.Add(this.panel1);
@@ -545,5 +562,6 @@
         private Panel panel1;
         private ComboBox comboBoxRodzaj;
         private TextBox textBoxWyswietl;
+        private Label labelNazwaEgzaminu;
     }
 }
