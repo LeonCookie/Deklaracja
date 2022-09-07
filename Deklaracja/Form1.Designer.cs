@@ -34,6 +34,11 @@
             this.DeklaracjaLabel = new System.Windows.Forms.Label();
             this.groupBoxDaneUcznia = new System.Windows.Forms.GroupBox();
             this.groupBoxAdres = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBoxDaneUcznia.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -55,21 +60,62 @@
             // 
             // groupBoxDaneUcznia
             // 
+            this.groupBoxDaneUcznia.Controls.Add(this.label5);
+            this.groupBoxDaneUcznia.Controls.Add(this.label4);
+            this.groupBoxDaneUcznia.Controls.Add(this.label3);
+            this.groupBoxDaneUcznia.Controls.Add(this.label2);
             this.groupBoxDaneUcznia.Location = new System.Drawing.Point(109, 102);
             this.groupBoxDaneUcznia.Name = "groupBoxDaneUcznia";
-            this.groupBoxDaneUcznia.Size = new System.Drawing.Size(300, 150);
+            this.groupBoxDaneUcznia.Size = new System.Drawing.Size(352, 206);
             this.groupBoxDaneUcznia.TabIndex = 2;
             this.groupBoxDaneUcznia.TabStop = false;
             this.groupBoxDaneUcznia.Text = "Dane osobowe ucznia";
             // 
             // groupBoxAdres
             // 
-            this.groupBoxAdres.Location = new System.Drawing.Point(109, 280);
+            this.groupBoxAdres.Location = new System.Drawing.Point(109, 355);
             this.groupBoxAdres.Name = "groupBoxAdres";
-            this.groupBoxAdres.Size = new System.Drawing.Size(300, 150);
+            this.groupBoxAdres.Size = new System.Drawing.Size(352, 206);
             this.groupBoxAdres.TabIndex = 3;
             this.groupBoxAdres.TabStop = false;
             this.groupBoxAdres.Text = "Adres korespondencyjny";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nazwisko:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 25);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Imię (imiona):";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(208, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Data i miejsce urodzenia:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 178);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 25);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Numer PESEL:";
             // 
             // Deklaracja
             // 
@@ -85,6 +131,8 @@
             this.Name = "Deklaracja";
             this.Text = "Deklaracja";
             this.Load += new System.EventHandler(this.Deklaracja_Load);
+            this.groupBoxDaneUcznia.ResumeLayout(false);
+            this.groupBoxDaneUcznia.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,5 +144,9 @@
         private Label DeklaracjaLabel;
         private GroupBox groupBoxDaneUcznia;
         private GroupBox groupBoxAdres;
+        private Label label2;
+        private Label label5;
+        private Label label4;
+        private Label label3;
     }
 }
