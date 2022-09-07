@@ -16,5 +16,10 @@ namespace Deklaracja
         {
 
         }
+
+        private void MiejsceEditBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

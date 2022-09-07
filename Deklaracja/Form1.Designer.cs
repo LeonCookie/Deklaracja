@@ -43,6 +43,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.NazwiskoEditBox = new System.Windows.Forms.TextBox();
+            this.ImieEditBox = new System.Windows.Forms.TextBox();
+            this.DataEditBox = new System.Windows.Forms.TextBox();
+            this.MiejsceEditBox = new System.Windows.Forms.TextBox();
+            this.PeselEditBox = new System.Windows.Forms.TextBox();
             this.groupBoxDaneUcznia.SuspendLayout();
             this.groupBoxAdres.SuspendLayout();
             this.SuspendLayout();
@@ -66,13 +71,18 @@
             // 
             // groupBoxDaneUcznia
             // 
+            this.groupBoxDaneUcznia.Controls.Add(this.PeselEditBox);
+            this.groupBoxDaneUcznia.Controls.Add(this.MiejsceEditBox);
+            this.groupBoxDaneUcznia.Controls.Add(this.DataEditBox);
+            this.groupBoxDaneUcznia.Controls.Add(this.ImieEditBox);
+            this.groupBoxDaneUcznia.Controls.Add(this.NazwiskoEditBox);
             this.groupBoxDaneUcznia.Controls.Add(this.label5);
             this.groupBoxDaneUcznia.Controls.Add(this.label4);
             this.groupBoxDaneUcznia.Controls.Add(this.label3);
             this.groupBoxDaneUcznia.Controls.Add(this.label2);
             this.groupBoxDaneUcznia.Location = new System.Drawing.Point(109, 102);
             this.groupBoxDaneUcznia.Name = "groupBoxDaneUcznia";
-            this.groupBoxDaneUcznia.Size = new System.Drawing.Size(532, 206);
+            this.groupBoxDaneUcznia.Size = new System.Drawing.Size(734, 212);
             this.groupBoxDaneUcznia.TabIndex = 2;
             this.groupBoxDaneUcznia.TabStop = false;
             this.groupBoxDaneUcznia.Text = "Dane osobowe ucznia";
@@ -86,7 +96,7 @@
             this.groupBoxAdres.Controls.Add(this.label9);
             this.groupBoxAdres.Location = new System.Drawing.Point(109, 355);
             this.groupBoxAdres.Name = "groupBoxAdres";
-            this.groupBoxAdres.Size = new System.Drawing.Size(532, 206);
+            this.groupBoxAdres.Size = new System.Drawing.Size(734, 206);
             this.groupBoxAdres.TabIndex = 3;
             this.groupBoxAdres.TabStop = false;
             this.groupBoxAdres.Text = "Adres korespondencyjny";
@@ -173,6 +183,42 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "mail";
             // 
+            // NazwiskoEditBox
+            // 
+            this.NazwiskoEditBox.Location = new System.Drawing.Point(323, 43);
+            this.NazwiskoEditBox.Name = "NazwiskoEditBox";
+            this.NazwiskoEditBox.Size = new System.Drawing.Size(385, 31);
+            this.NazwiskoEditBox.TabIndex = 4;
+            // 
+            // ImieEditBox
+            // 
+            this.ImieEditBox.Location = new System.Drawing.Point(323, 80);
+            this.ImieEditBox.Name = "ImieEditBox";
+            this.ImieEditBox.Size = new System.Drawing.Size(385, 31);
+            this.ImieEditBox.TabIndex = 5;
+            // 
+            // DataEditBox
+            // 
+            this.DataEditBox.Location = new System.Drawing.Point(323, 127);
+            this.DataEditBox.Name = "DataEditBox";
+            this.DataEditBox.Size = new System.Drawing.Size(117, 31);
+            this.DataEditBox.TabIndex = 6;
+            // 
+            // MiejsceEditBox
+            // 
+            this.MiejsceEditBox.Location = new System.Drawing.Point(464, 127);
+            this.MiejsceEditBox.Name = "MiejsceEditBox";
+            this.MiejsceEditBox.Size = new System.Drawing.Size(244, 31);
+            this.MiejsceEditBox.TabIndex = 7;
+            this.MiejsceEditBox.TextChanged += new System.EventHandler(this.MiejsceEditBox_TextChanged);
+            // 
+            // PeselEditBox
+            // 
+            this.PeselEditBox.Location = new System.Drawing.Point(323, 178);
+            this.PeselEditBox.Name = "PeselEditBox";
+            this.PeselEditBox.Size = new System.Drawing.Size(161, 31);
+            this.PeselEditBox.TabIndex = 8;
+            // 
             // Deklaracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -211,5 +257,10 @@
         private Label label7;
         private Label label8;
         private Label label9;
+        private TextBox PeselEditBox;
+        private TextBox MiejsceEditBox;
+        private TextBox DataEditBox;
+        private TextBox ImieEditBox;
+        private TextBox NazwiskoEditBox;
     }
 }
