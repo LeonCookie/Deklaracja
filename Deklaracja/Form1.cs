@@ -21,5 +21,30 @@ namespace Deklaracja
         {
 
         }
+
+        private void NazwiskoEditBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PeselEditBox_TextChanged(object sender, EventArgs e)
+        {
+            PeselEditBox.MaxLength = 11;
+        }
+
+        private void DataEditBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
