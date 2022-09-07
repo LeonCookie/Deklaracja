@@ -43,17 +43,27 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxAdres = new System.Windows.Forms.GroupBox();
+            this.telefonEditBox = new System.Windows.Forms.TextBox();
+            this.mailEditBox = new System.Windows.Forms.TextBox();
+            this.pocztaEditBox = new System.Windows.Forms.TextBox();
+            this.kodPocztowyEditBox = new System.Windows.Forms.TextBox();
+            this.UlicaEditBox = new System.Windows.Forms.TextBox();
+            this.MiejscEditBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.MiejscEditBox = new System.Windows.Forms.TextBox();
-            this.UlicaEditBox = new System.Windows.Forms.TextBox();
-            this.kodPocztowyEditBox = new System.Windows.Forms.TextBox();
-            this.pocztaEditBox = new System.Windows.Forms.TextBox();
-            this.mailEditBox = new System.Windows.Forms.TextBox();
-            this.telefonEditBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.RadioButtonInf = new System.Windows.Forms.RadioButton();
+            this.radioButtonProg = new System.Windows.Forms.RadioButton();
+            this.radioButtonPierw = new System.Windows.Forms.RadioButton();
+            this.radioButtonKolejny = new System.Windows.Forms.RadioButton();
+            this.checkBoxPisemny = new System.Windows.Forms.CheckBox();
+            this.checkBoxPraktyczny = new System.Windows.Forms.CheckBox();
+            this.buttonZatwierdz = new System.Windows.Forms.Button();
             this.groupBoxDaneUcznia.SuspendLayout();
             this.groupBoxAdres.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +79,7 @@
             // DeklaracjaLabel
             // 
             this.DeklaracjaLabel.AutoSize = true;
-            this.DeklaracjaLabel.Location = new System.Drawing.Point(176, 32);
+            this.DeklaracjaLabel.Location = new System.Drawing.Point(279, 36);
             this.DeklaracjaLabel.Name = "DeklaracjaLabel";
             this.DeklaracjaLabel.Size = new System.Drawing.Size(373, 25);
             this.DeklaracjaLabel.TabIndex = 1;
@@ -190,6 +200,48 @@
             this.groupBoxAdres.TabStop = false;
             this.groupBoxAdres.Text = "Adres korespondencyjny";
             // 
+            // telefonEditBox
+            // 
+            this.telefonEditBox.Location = new System.Drawing.Point(322, 165);
+            this.telefonEditBox.Name = "telefonEditBox";
+            this.telefonEditBox.Size = new System.Drawing.Size(149, 31);
+            this.telefonEditBox.TabIndex = 14;
+            // 
+            // mailEditBox
+            // 
+            this.mailEditBox.Location = new System.Drawing.Point(586, 165);
+            this.mailEditBox.Name = "mailEditBox";
+            this.mailEditBox.Size = new System.Drawing.Size(265, 31);
+            this.mailEditBox.TabIndex = 13;
+            // 
+            // pocztaEditBox
+            // 
+            this.pocztaEditBox.Location = new System.Drawing.Point(478, 123);
+            this.pocztaEditBox.Name = "pocztaEditBox";
+            this.pocztaEditBox.Size = new System.Drawing.Size(372, 31);
+            this.pocztaEditBox.TabIndex = 12;
+            // 
+            // kodPocztowyEditBox
+            // 
+            this.kodPocztowyEditBox.Location = new System.Drawing.Point(323, 123);
+            this.kodPocztowyEditBox.Name = "kodPocztowyEditBox";
+            this.kodPocztowyEditBox.Size = new System.Drawing.Size(118, 31);
+            this.kodPocztowyEditBox.TabIndex = 11;
+            // 
+            // UlicaEditBox
+            // 
+            this.UlicaEditBox.Location = new System.Drawing.Point(323, 86);
+            this.UlicaEditBox.Name = "UlicaEditBox";
+            this.UlicaEditBox.Size = new System.Drawing.Size(527, 31);
+            this.UlicaEditBox.TabIndex = 10;
+            // 
+            // MiejscEditBox
+            // 
+            this.MiejscEditBox.Location = new System.Drawing.Point(323, 42);
+            this.MiejscEditBox.Name = "MiejscEditBox";
+            this.MiejscEditBox.Size = new System.Drawing.Size(528, 31);
+            this.MiejscEditBox.TabIndex = 9;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -237,53 +289,125 @@
             this.label9.Text = "miejscowość:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // MiejscEditBox
+            // label11
             // 
-            this.MiejscEditBox.Location = new System.Drawing.Point(323, 42);
-            this.MiejscEditBox.Name = "MiejscEditBox";
-            this.MiejscEditBox.Size = new System.Drawing.Size(528, 31);
-            this.MiejscEditBox.TabIndex = 9;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(158, 559);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(637, 25);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Deklaruję przystąpienie do egzaminu potwierdzającego kwalifikacje w zawodzie";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // UlicaEditBox
+            // label12
             // 
-            this.UlicaEditBox.Location = new System.Drawing.Point(323, 86);
-            this.UlicaEditBox.Name = "UlicaEditBox";
-            this.UlicaEditBox.Size = new System.Drawing.Size(527, 31);
-            this.UlicaEditBox.TabIndex = 10;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(231, 601);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(252, 25);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "przeprowadzanego w terminie";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
-            // kodPocztowyEditBox
+            // listView1
             // 
-            this.kodPocztowyEditBox.Location = new System.Drawing.Point(323, 123);
-            this.kodPocztowyEditBox.Name = "kodPocztowyEditBox";
-            this.kodPocztowyEditBox.Size = new System.Drawing.Size(118, 31);
-            this.kodPocztowyEditBox.TabIndex = 11;
+            this.listView1.Location = new System.Drawing.Point(1047, 357);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(8, 8);
+            this.listView1.TabIndex = 7;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // pocztaEditBox
+            // RadioButtonInf
             // 
-            this.pocztaEditBox.Location = new System.Drawing.Point(478, 123);
-            this.pocztaEditBox.Name = "pocztaEditBox";
-            this.pocztaEditBox.Size = new System.Drawing.Size(372, 31);
-            this.pocztaEditBox.TabIndex = 12;
+            this.RadioButtonInf.AutoSize = true;
+            this.RadioButtonInf.Location = new System.Drawing.Point(245, 659);
+            this.RadioButtonInf.Name = "RadioButtonInf";
+            this.RadioButtonInf.Size = new System.Drawing.Size(184, 29);
+            this.RadioButtonInf.TabIndex = 8;
+            this.RadioButtonInf.TabStop = true;
+            this.RadioButtonInf.Text = "technik informatyk";
+            this.RadioButtonInf.UseVisualStyleBackColor = true;
             // 
-            // mailEditBox
+            // radioButtonProg
             // 
-            this.mailEditBox.Location = new System.Drawing.Point(586, 165);
-            this.mailEditBox.Name = "mailEditBox";
-            this.mailEditBox.Size = new System.Drawing.Size(265, 31);
-            this.mailEditBox.TabIndex = 13;
+            this.radioButtonProg.AutoSize = true;
+            this.radioButtonProg.Location = new System.Drawing.Point(583, 659);
+            this.radioButtonProg.Name = "radioButtonProg";
+            this.radioButtonProg.Size = new System.Drawing.Size(195, 29);
+            this.radioButtonProg.TabIndex = 9;
+            this.radioButtonProg.TabStop = true;
+            this.radioButtonProg.Text = "technik programista";
+            this.radioButtonProg.UseVisualStyleBackColor = true;
+            this.radioButtonProg.CheckedChanged += new System.EventHandler(this.radioButtonProg_CheckedChanged);
             // 
-            // telefonEditBox
+            // radioButtonPierw
             // 
-            this.telefonEditBox.Location = new System.Drawing.Point(322, 165);
-            this.telefonEditBox.Name = "telefonEditBox";
-            this.telefonEditBox.Size = new System.Drawing.Size(149, 31);
-            this.telefonEditBox.TabIndex = 14;
+            this.radioButtonPierw.AutoSize = true;
+            this.radioButtonPierw.Location = new System.Drawing.Point(175, 775);
+            this.radioButtonPierw.Name = "radioButtonPierw";
+            this.radioButtonPierw.Size = new System.Drawing.Size(160, 29);
+            this.radioButtonPierw.TabIndex = 10;
+            this.radioButtonPierw.TabStop = true;
+            this.radioButtonPierw.Text = "po raz pierwszy";
+            this.radioButtonPierw.UseVisualStyleBackColor = true;
+            this.radioButtonPierw.CheckedChanged += new System.EventHandler(this.radioButtonPierw_CheckedChanged);
+            // 
+            // radioButtonKolejny
+            // 
+            this.radioButtonKolejny.AutoSize = true;
+            this.radioButtonKolejny.Location = new System.Drawing.Point(398, 775);
+            this.radioButtonKolejny.Name = "radioButtonKolejny";
+            this.radioButtonKolejny.Size = new System.Drawing.Size(148, 29);
+            this.radioButtonKolejny.TabIndex = 11;
+            this.radioButtonKolejny.TabStop = true;
+            this.radioButtonKolejny.Text = "po raz kolejny";
+            this.radioButtonKolejny.UseVisualStyleBackColor = true;
+            this.radioButtonKolejny.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // checkBoxPisemny
+            // 
+            this.checkBoxPisemny.AutoSize = true;
+            this.checkBoxPisemny.Location = new System.Drawing.Point(610, 775);
+            this.checkBoxPisemny.Name = "checkBoxPisemny";
+            this.checkBoxPisemny.Size = new System.Drawing.Size(109, 29);
+            this.checkBoxPisemny.TabIndex = 12;
+            this.checkBoxPisemny.Text = " Pisemny";
+            this.checkBoxPisemny.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxPraktyczny
+            // 
+            this.checkBoxPraktyczny.AutoSize = true;
+            this.checkBoxPraktyczny.Location = new System.Drawing.Point(752, 776);
+            this.checkBoxPraktyczny.Name = "checkBoxPraktyczny";
+            this.checkBoxPraktyczny.Size = new System.Drawing.Size(127, 29);
+            this.checkBoxPraktyczny.TabIndex = 13;
+            this.checkBoxPraktyczny.Text = "Praktyczny ";
+            this.checkBoxPraktyczny.UseVisualStyleBackColor = true;
+            // 
+            // buttonZatwierdz
+            // 
+            this.buttonZatwierdz.Location = new System.Drawing.Point(607, 876);
+            this.buttonZatwierdz.Name = "buttonZatwierdz";
+            this.buttonZatwierdz.Size = new System.Drawing.Size(112, 34);
+            this.buttonZatwierdz.TabIndex = 14;
+            this.buttonZatwierdz.Text = "Zatwierdź";
+            this.buttonZatwierdz.UseVisualStyleBackColor = true;
             // 
             // Deklaracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 614);
+            this.ClientSize = new System.Drawing.Size(1648, 978);
+            this.Controls.Add(this.buttonZatwierdz);
+            this.Controls.Add(this.checkBoxPraktyczny);
+            this.Controls.Add(this.checkBoxPisemny);
+            this.Controls.Add(this.radioButtonKolejny);
+            this.Controls.Add(this.radioButtonPierw);
+            this.Controls.Add(this.radioButtonProg);
+            this.Controls.Add(this.RadioButtonInf);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBoxAdres);
             this.Controls.Add(this.groupBoxDaneUcznia);
             this.Controls.Add(this.DeklaracjaLabel);
@@ -328,5 +452,15 @@
         private TextBox UlicaEditBox;
         private TextBox telefonEditBox;
         private TextBox mailEditBox;
+        private Label label11;
+        private Label label12;
+        private ListView listView1;
+        private RadioButton RadioButtonInf;
+        private RadioButton radioButtonProg;
+        private RadioButton radioButtonPierw;
+        private RadioButton radioButtonKolejny;
+        private CheckBox checkBoxPisemny;
+        private CheckBox checkBoxPraktyczny;
+        private Button buttonZatwierdz;
     }
 }
