@@ -38,7 +38,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBoxDaneUcznia.SuspendLayout();
+            this.groupBoxAdres.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -66,16 +72,21 @@
             this.groupBoxDaneUcznia.Controls.Add(this.label2);
             this.groupBoxDaneUcznia.Location = new System.Drawing.Point(109, 102);
             this.groupBoxDaneUcznia.Name = "groupBoxDaneUcznia";
-            this.groupBoxDaneUcznia.Size = new System.Drawing.Size(352, 206);
+            this.groupBoxDaneUcznia.Size = new System.Drawing.Size(532, 206);
             this.groupBoxDaneUcznia.TabIndex = 2;
             this.groupBoxDaneUcznia.TabStop = false;
             this.groupBoxDaneUcznia.Text = "Dane osobowe ucznia";
             // 
             // groupBoxAdres
             // 
+            this.groupBoxAdres.Controls.Add(this.label10);
+            this.groupBoxAdres.Controls.Add(this.label6);
+            this.groupBoxAdres.Controls.Add(this.label7);
+            this.groupBoxAdres.Controls.Add(this.label8);
+            this.groupBoxAdres.Controls.Add(this.label9);
             this.groupBoxAdres.Location = new System.Drawing.Point(109, 355);
             this.groupBoxAdres.Name = "groupBoxAdres";
-            this.groupBoxAdres.Size = new System.Drawing.Size(352, 206);
+            this.groupBoxAdres.Size = new System.Drawing.Size(532, 206);
             this.groupBoxAdres.TabIndex = 3;
             this.groupBoxAdres.TabStop = false;
             this.groupBoxAdres.Text = "Adres korespondencyjny";
@@ -117,6 +128,51 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Numer PESEL:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 168);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(226, 25);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "nr telefonu z kierunkowym:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(196, 25);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "kod pocztowy i poczta:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 76);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(169, 25);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "ulica i numer domu:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 27);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(116, 25);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "miejscowość:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(366, 168);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 25);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "mail";
+            // 
             // Deklaracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -133,6 +189,8 @@
             this.Load += new System.EventHandler(this.Deklaracja_Load);
             this.groupBoxDaneUcznia.ResumeLayout(false);
             this.groupBoxDaneUcznia.PerformLayout();
+            this.groupBoxAdres.ResumeLayout(false);
+            this.groupBoxAdres.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +206,10 @@
         private Label label5;
         private Label label4;
         private Label label3;
+        private Label label10;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
     }
 }
