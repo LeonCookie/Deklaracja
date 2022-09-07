@@ -129,6 +129,7 @@
             this.MiejsceEditBox.Size = new System.Drawing.Size(299, 31);
             this.MiejsceEditBox.TabIndex = 7;
             this.MiejsceEditBox.TextChanged += new System.EventHandler(this.MiejsceEditBox_TextChanged);
+            this.MiejsceEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
             // 
             // DataEditBox
             // 
@@ -146,6 +147,7 @@
             this.ImieEditBox.Name = "ImieEditBox";
             this.ImieEditBox.Size = new System.Drawing.Size(528, 31);
             this.ImieEditBox.TabIndex = 5;
+            this.ImieEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
             // 
             // NazwiskoEditBox
             // 
@@ -155,6 +157,7 @@
             this.NazwiskoEditBox.Size = new System.Drawing.Size(528, 31);
             this.NazwiskoEditBox.TabIndex = 4;
             this.NazwiskoEditBox.TextChanged += new System.EventHandler(this.NazwiskoEditBox_TextChanged);
+            this.NazwiskoEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
             // 
             // label5
             // 
@@ -234,6 +237,7 @@
             this.pocztaEditBox.Name = "pocztaEditBox";
             this.pocztaEditBox.Size = new System.Drawing.Size(372, 31);
             this.pocztaEditBox.TabIndex = 12;
+            this.pocztaEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
             // 
             // kodPocztowyEditBox
             // 
@@ -258,6 +262,7 @@
             this.MiejscEditBox.Name = "MiejscEditBox";
             this.MiejscEditBox.Size = new System.Drawing.Size(528, 31);
             this.MiejscEditBox.TabIndex = 9;
+            this.MiejscEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
             // 
             // label10
             // 
@@ -385,6 +390,7 @@
             // checkBoxPisemny
             // 
             this.checkBoxPisemny.AutoSize = true;
+            this.checkBoxPisemny.Enabled = false;
             this.checkBoxPisemny.Location = new System.Drawing.Point(606, 843);
             this.checkBoxPisemny.Name = "checkBoxPisemny";
             this.checkBoxPisemny.Size = new System.Drawing.Size(109, 29);
@@ -395,6 +401,7 @@
             // checkBoxPraktyczny
             // 
             this.checkBoxPraktyczny.AutoSize = true;
+            this.checkBoxPraktyczny.Enabled = false;
             this.checkBoxPraktyczny.Location = new System.Drawing.Point(736, 844);
             this.checkBoxPraktyczny.Name = "checkBoxPraktyczny";
             this.checkBoxPraktyczny.Size = new System.Drawing.Size(127, 29);
@@ -411,6 +418,7 @@
             this.buttonZatwierdz.TabIndex = 14;
             this.buttonZatwierdz.Text = "Zatwierdź";
             this.buttonZatwierdz.UseVisualStyleBackColor = true;
+            this.buttonZatwierdz.Click += new System.EventHandler(this.buttonZatwierdz_Click);
             // 
             // buttonWyczysc
             // 

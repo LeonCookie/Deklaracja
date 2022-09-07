@@ -34,6 +34,7 @@ namespace Deklaracja
         {
             PeselEditBox.MaxLength = 11;
             
+            
         }
 
         private void DataEditBox_TextChanged(object sender, EventArgs e)
@@ -60,17 +61,27 @@ namespace Deklaracja
         {
 
         }
+       
 
-        
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+    private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+             if (radioButtonKolejny.Checked == true)
+            {
+                checkBoxPisemny.Enabled = true;
+                checkBoxPraktyczny.Enabled = true;
+            }
         }
 
         private void radioButtonPierw_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (radioButtonPierw.Checked == true)
+            {
+                checkBoxPisemny.Enabled = false;
+                checkBoxPraktyczny.Enabled = false;
+                checkBoxPraktyczny.Checked = false;
+                checkBoxPisemny.Checked = false;
+            }
         }
 
         private void checkBoxPraktyczny_CheckedChanged(object sender, EventArgs e)
@@ -133,6 +144,117 @@ namespace Deklaracja
             {
                 labelNazwaEgzaminu.Text = "";
             }
+        }
+
+        private void buttonZatwierdz_Click(object sender, EventArgs e)
+        {
+            //checked lastname
+            if (string.IsNullOrEmpty(NazwiskoEditBox.Text))
+            {
+                NazwiskoEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                NazwiskoEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked name
+            if (string.IsNullOrEmpty(ImieEditBox.Text))
+            {
+                ImieEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                ImieEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked date and home
+            if (string.IsNullOrEmpty(DataEditBox.Text))
+            {
+                DataEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                DataEditBox.BackColor = Color.LimeGreen;
+            }
+            if (string.IsNullOrEmpty(MiejsceEditBox.Text))
+            {
+                MiejsceEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                MiejsceEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked PESEL
+            if (string.IsNullOrEmpty(PeselEditBox.Text) || PeselEditBox.TextLength !=11)
+            {
+                PeselEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                //DODAC WARUNEK DLA LICZB PARZYSYCH I LITERT A
+                PeselEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked adress
+            if (string.IsNullOrEmpty(MiejscEditBox.Text))
+            {
+                MiejscEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                MiejscEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked street
+            if (string.IsNullOrEmpty(UlicaEditBox.Text))
+            {
+                UlicaEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                UlicaEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked code for mail
+            if (string.IsNullOrEmpty(kodPocztowyEditBox.Text))
+            {
+                kodPocztowyEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                kodPocztowyEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked mail
+            if (string.IsNullOrEmpty(pocztaEditBox.Text))
+            {
+                pocztaEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                pocztaEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked phone number
+            if (string.IsNullOrEmpty(telefonEditBox.Text))
+            {
+                telefonEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                telefonEditBox.BackColor = Color.LimeGreen;
+            }
+            //checked mail
+            if (string.IsNullOrEmpty(mailEditBox.Text))
+            {
+                mailEditBox.BackColor = Color.Red;
+            }
+            else
+            {
+                mailEditBox.BackColor = Color.LimeGreen;
+            }
+
+
+        }
+
+        private void NazwiskoEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
         }
     }
 }
