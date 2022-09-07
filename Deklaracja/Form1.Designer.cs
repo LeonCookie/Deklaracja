@@ -68,6 +68,8 @@
             this.buttonZapisz = new System.Windows.Forms.Button();
             this.comboBoxTermin = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxRodzaj = new System.Windows.Forms.ComboBox();
+            this.textBoxWyswietl = new System.Windows.Forms.TextBox();
             this.groupBoxDaneUcznia.SuspendLayout();
             this.groupBoxAdres.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -372,7 +374,7 @@
             // checkBoxPisemny
             // 
             this.checkBoxPisemny.AutoSize = true;
-            this.checkBoxPisemny.Location = new System.Drawing.Point(610, 775);
+            this.checkBoxPisemny.Location = new System.Drawing.Point(606, 843);
             this.checkBoxPisemny.Name = "checkBoxPisemny";
             this.checkBoxPisemny.Size = new System.Drawing.Size(109, 29);
             this.checkBoxPisemny.TabIndex = 12;
@@ -382,7 +384,7 @@
             // checkBoxPraktyczny
             // 
             this.checkBoxPraktyczny.AutoSize = true;
-            this.checkBoxPraktyczny.Location = new System.Drawing.Point(736, 775);
+            this.checkBoxPraktyczny.Location = new System.Drawing.Point(736, 844);
             this.checkBoxPraktyczny.Name = "checkBoxPraktyczny";
             this.checkBoxPraktyczny.Size = new System.Drawing.Size(127, 29);
             this.checkBoxPraktyczny.TabIndex = 13;
@@ -392,7 +394,7 @@
             // 
             // buttonZatwierdz
             // 
-            this.buttonZatwierdz.Location = new System.Drawing.Point(607, 876);
+            this.buttonZatwierdz.Location = new System.Drawing.Point(606, 912);
             this.buttonZatwierdz.Name = "buttonZatwierdz";
             this.buttonZatwierdz.Size = new System.Drawing.Size(256, 34);
             this.buttonZatwierdz.TabIndex = 14;
@@ -401,7 +403,7 @@
             // 
             // buttonWyczysc
             // 
-            this.buttonWyczysc.Location = new System.Drawing.Point(972, 876);
+            this.buttonWyczysc.Location = new System.Drawing.Point(1017, 912);
             this.buttonWyczysc.Name = "buttonWyczysc";
             this.buttonWyczysc.Size = new System.Drawing.Size(256, 34);
             this.buttonWyczysc.TabIndex = 15;
@@ -410,7 +412,7 @@
             // 
             // buttonZapisz
             // 
-            this.buttonZapisz.Location = new System.Drawing.Point(1320, 876);
+            this.buttonZapisz.Location = new System.Drawing.Point(1361, 912);
             this.buttonZapisz.Name = "buttonZapisz";
             this.buttonZapisz.Size = new System.Drawing.Size(256, 34);
             this.buttonZapisz.TabIndex = 16;
@@ -433,16 +435,37 @@
             // 
             this.panel1.Controls.Add(this.radioButtonPierw);
             this.panel1.Controls.Add(this.radioButtonKolejny);
-            this.panel1.Location = new System.Drawing.Point(153, 726);
+            this.panel1.Location = new System.Drawing.Point(158, 796);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 150);
             this.panel1.TabIndex = 18;
+            // 
+            // comboBoxRodzaj
+            // 
+            this.comboBoxRodzaj.FormattingEnabled = true;
+            this.comboBoxRodzaj.Location = new System.Drawing.Point(158, 719);
+            this.comboBoxRodzaj.Name = "comboBoxRodzaj";
+            this.comboBoxRodzaj.Size = new System.Drawing.Size(182, 33);
+            this.comboBoxRodzaj.TabIndex = 19;
+            // 
+            // textBoxWyswietl
+            // 
+            this.textBoxWyswietl.Enabled = false;
+            this.textBoxWyswietl.Location = new System.Drawing.Point(1017, 36);
+            this.textBoxWyswietl.MaximumSize = new System.Drawing.Size(600, 570);
+            this.textBoxWyswietl.MinimumSize = new System.Drawing.Size(600, 850);
+            this.textBoxWyswietl.Multiline = true;
+            this.textBoxWyswietl.Name = "textBoxWyswietl";
+            this.textBoxWyswietl.Size = new System.Drawing.Size(600, 850);
+            this.textBoxWyswietl.TabIndex = 20;
             // 
             // Deklaracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1648, 978);
+            this.Controls.Add(this.textBoxWyswietl);
+            this.Controls.Add(this.comboBoxRodzaj);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBoxTermin);
             this.Controls.Add(this.buttonZapisz);
@@ -515,5 +538,7 @@
         private Button buttonZapisz;
         private ComboBox comboBoxTermin;
         private Panel panel1;
+        private ComboBox comboBoxRodzaj;
+        private TextBox textBoxWyswietl;
     }
 }
