@@ -1,4 +1,7 @@
 using System.Diagnostics;
+using System.Linq.Expressions;
+using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Deklaracja
 {
@@ -27,7 +30,7 @@ namespace Deklaracja
 
         private void NazwiskoEditBox_TextChanged(object sender, EventArgs e)
         {
-
+            BackColor = Color.White;
         }
 
         private void PeselEditBox_TextChanged(object sender, EventArgs e)
@@ -145,7 +148,33 @@ namespace Deklaracja
                 labelNazwaEgzaminu.Text = "";
             }
         }
-        string Sname, Slastname, Sdata, Shome,Spesel,Smiejsc,Sstreet,Sadress,Skodpoczt,Spoczta,Sphone,Smail  ;
+        string Sname, Slastname, Sdata, Shome,Spesel,Smiejsc,Sstreet,Sadress,Skodpoczt,Spoczta,Sphone,Smail,SWyswietl  ;
+
+        private void mailEditBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonWyczysc_Click(object sender, EventArgs e)
+        {
+            pocztaEditBox.Clear();
+            PeselEditBox.Clear();
+            ImieEditBox.Clear();
+            NazwiskoEditBox.Clear();
+            DataEditBox.Clear();
+            MiejscEditBox.Clear();
+            MiejsceEditBox.Clear();
+            kodPocztowyEditBox.Clear();
+            UlicaEditBox.Clear();
+            telefonEditBox.Clear();
+            mailEditBox.Clear();
+            textBoxWyswietl.Clear();
+        }
+
+        private void pocztaEditBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
 
         private void pocztaEditBox_TextChanged(object sender, EventArgs e)
         {
@@ -221,7 +250,7 @@ namespace Deklaracja
             if (string.IsNullOrEmpty(PeselEditBox.Text) || PeselEditBox.TextLength != 11)
             {
                     PeselEditBox.BackColor = Color.Red;
-                MessageBox.Show("Ÿle wpisano email");
+                MessageBox.Show("Ÿle wpisano Pesel");
                 Bsprawdz = false;
 
             }
@@ -269,12 +298,43 @@ namespace Deklaracja
             }
             else
             {
+                
+
                 Bsprawdz = true;
                 Skodpoczt = kodPocztowyEditBox.Text;
                 kodPocztowyEditBox.BackColor = Color.LimeGreen;
             }
             //checked mail
-            if (string.IsNullOrEmpty(pocztaEditBox.Text))
+            bool checkMail = false;
+            if (!string.IsNullOrEmpty(mailEditBox.Text))
+            {
+                Smail = mailEditBox.Text;
+                if (Smail.Contains("@") == false)
+                {
+                    mailEditBox.BackColor = Color.Red;
+                    Bsprawdz = false;
+                    MessageBox.Show("brakuje @ w mailu");
+                    checkMail = false;
+
+                }
+                else
+                {
+                    Bsprawdz = true;
+                    Smail = mailEditBox.Text;
+                    mailEditBox.BackColor = Color.LimeGreen;
+                    checkMail = true;
+                }
+               
+
+            }
+            else
+            {
+                mailEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
+                
+            }
+            //poczta
+            if(string.IsNullOrEmpty(pocztaEditBox.Text))
             {
                 pocztaEditBox.BackColor = Color.Red;
                 Bsprawdz = false;
@@ -324,12 +384,101 @@ namespace Deklaracja
                 }
             }
 
-            if (Bsprawdz == true) //comboBoxTermin.SelectedIndex == -1 && comboBoxRodzaj.SelectedIndex == -1 && (RadioButtonInf.Checked || radioButtonProg.Checked) & (radioButtonPierw.Checked || radioButtonKolejny.Checked) && (checkBoxPisemny.Checked || checkBoxPraktyczny.Checked)) 
+            if (Bsprawdz == true && checkMail) //comboBoxTermin.SelectedIndex == -1 && comboBoxRodzaj.SelectedIndex == -1 && (RadioButtonInf.Checked || radioButtonProg.Checked) & (radioButtonPierw.Checked || radioButtonKolejny.Checked) && (checkBoxPisemny.Checked || checkBoxPraktyczny.Checked)) 
             {
                 Debug.WriteLine("dobrze podane dane");
+                bool isChecked1 = radioButtonPierw.Checked;
+                string value1 = "";
+                if (isChecked1)
+                {
+                    value1 = radioButtonPierw.Text;
+
+                }
+                else
+                {
+                    value1 = radioButtonKolejny.Text;
+                }
+
+                string value2 = "";
+                if (checkBoxPisemny.Checked)
+                {
+                    value2 = checkBoxPisemny.Text;
+                }
+                else if (checkBoxPraktyczny.Checked)
+                {
+                    value2 = checkBoxPraktyczny.Text;
+                }
+                else if (checkBoxPraktyczny.Checked && checkBoxPisemny.Checked)
+                {
+                    value2 = checkBoxPisemny.Text + " i " + checkBoxPraktyczny;
+                }
+                string nazwaegz = "";
+                if (comboBoxRodzaj.Text == "INF.02")
+                {
+                    nazwaegz = ("Administracja i eksploatacja systemów komputerowych, urz¹dzeñ peryferyjnych i lokalnych sieci komputerowych");
+                }
+                else if (comboBoxRodzaj.Text == "INF.03")
+                {
+                    nazwaegz = "Tworzenie i administrowanie stronami i aplikacjami internetowymi oraz bazami danych";
+                }
+                else if (comboBoxRodzaj.Text == "INF.04")
+                {
+                    nazwaegz = "Projektowanie, programowanie i testowanie aplikacji";
+                }
+
+                bool isChecked2 = radioButtonProg.Checked;
+                string cyfrowy = "";
+                string nazwaZaw = "";
+                if (isChecked2)
+                {
+                    nazwaZaw = radioButtonProg.Text;
+                    cyfrowy = "351406";
+
+                }
+                else
+                {
+                    cyfrowy = "351203";
+                    nazwaZaw = RadioButtonInf.Text;
+                }
+
+
+                textBoxWyswietl.Text = "Deklaruje przyst¹pienie do egzaminu potwierdzaj¹cego kwalifikacje w zawodzie przeprowadzonego terminu" + " " + comboBoxTermin.Text + "\r\n" + "\r\n" +
+                    "Dane osobowe ucznia" + "\r\n" +
+                    " Nazwisko: \t" + NazwiskoEditBox.Text + "\r\n" +
+                    " Imie(imiona): " + ImieEditBox.Text + "\r\n" +
+                    " Data i miejsce urodzenia: " + DataEditBox.Text + " , " + MiejsceEditBox.Text + "\r\n" +
+                    " Numer Pesel: " + PeselEditBox.Text + "\r\n" + "\r\n" +
+                    "Adres korenspondencyjny" + "\r\n" +
+                    " miejscowoœæ: " + MiejscEditBox.Text + "\r\n" +
+                    " ulica i numer domu: " + UlicaEditBox.Text + "\r\n" +
+                    " kod pocztowy i poczta: " + kodPocztowyEditBox.Text + " , " + pocztaEditBox.Text + "\r\n" +
+                    " nr telefonu z kierunkowym: " + telefonEditBox.Text + "\r\n" +
+                    " mail: " + mailEditBox.Text + "\r\n" + "\r\n" +
+                    "Deklaruje przyst¹pienie do egazminu " + value1 + " do " + value2
+                    + "\r\n" + "\r\n" +
+                    "Oznaczenie kwalifikacji zgodne z podstaw¹ programow¹: " + comboBoxRodzaj.Text + "\r\n" +
+                    "Nazwa kwalifikacji: " + nazwaegz + "." + "\r\n" + "\r\n" +
+                    "Symbol cyfrowy zawodu: " + cyfrowy + "\r\n" +
+                    "Nazwa zawodu: " + nazwaZaw;
+
+                SWyswietl = textBoxWyswietl.Text;
             }
 
 
+        }
+        private void buttonZapisz_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sd = new SaveFileDialog();
+
+            if (sd.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(sd.FileName))
+                {
+                    sw.Write(SWyswietl);
+                    sw.Flush();
+                    sw.Close();
+                }
+            }
         }
 
         private void NazwiskoEditBox_KeyPress(object sender, KeyPressEventArgs e)
