@@ -33,9 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DeklaracjaLabel = new System.Windows.Forms.Label();
             this.groupBoxDaneUcznia = new System.Windows.Forms.GroupBox();
+            this.DataEditBox = new System.Windows.Forms.MaskedTextBox();
             this.PeselEditBox = new System.Windows.Forms.TextBox();
             this.MiejsceEditBox = new System.Windows.Forms.TextBox();
-            this.DataEditBox = new System.Windows.Forms.TextBox();
             this.ImieEditBox = new System.Windows.Forms.TextBox();
             this.NazwiskoEditBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,10 +43,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxAdres = new System.Windows.Forms.GroupBox();
-            this.telefonEditBox = new System.Windows.Forms.TextBox();
+            this.telefonEditBox = new System.Windows.Forms.MaskedTextBox();
+            this.kodPocztowyEditBox = new System.Windows.Forms.MaskedTextBox();
             this.mailEditBox = new System.Windows.Forms.TextBox();
             this.pocztaEditBox = new System.Windows.Forms.TextBox();
-            this.kodPocztowyEditBox = new System.Windows.Forms.TextBox();
             this.UlicaEditBox = new System.Windows.Forms.TextBox();
             this.MiejscEditBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -95,9 +95,9 @@
             // 
             // groupBoxDaneUcznia
             // 
+            this.groupBoxDaneUcznia.Controls.Add(this.DataEditBox);
             this.groupBoxDaneUcznia.Controls.Add(this.PeselEditBox);
             this.groupBoxDaneUcznia.Controls.Add(this.MiejsceEditBox);
-            this.groupBoxDaneUcznia.Controls.Add(this.DataEditBox);
             this.groupBoxDaneUcznia.Controls.Add(this.ImieEditBox);
             this.groupBoxDaneUcznia.Controls.Add(this.NazwiskoEditBox);
             this.groupBoxDaneUcznia.Controls.Add(this.label5);
@@ -110,6 +110,15 @@
             this.groupBoxDaneUcznia.TabIndex = 2;
             this.groupBoxDaneUcznia.TabStop = false;
             this.groupBoxDaneUcznia.Text = "Dane osobowe ucznia";
+            // 
+            // DataEditBox
+            // 
+            this.DataEditBox.Location = new System.Drawing.Point(322, 130);
+            this.DataEditBox.Mask = "00/00/0000";
+            this.DataEditBox.Name = "DataEditBox";
+            this.DataEditBox.Size = new System.Drawing.Size(150, 31);
+            this.DataEditBox.TabIndex = 23;
+            this.DataEditBox.ValidatingType = typeof(System.DateTime);
             // 
             // PeselEditBox
             // 
@@ -130,15 +139,6 @@
             this.MiejsceEditBox.TabIndex = 7;
             this.MiejsceEditBox.TextChanged += new System.EventHandler(this.MiejsceEditBox_TextChanged);
             this.MiejsceEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
-            // 
-            // DataEditBox
-            // 
-            this.DataEditBox.Location = new System.Drawing.Point(323, 127);
-            this.DataEditBox.Name = "DataEditBox";
-            this.DataEditBox.Size = new System.Drawing.Size(148, 31);
-            this.DataEditBox.TabIndex = 6;
-            this.DataEditBox.TextChanged += new System.EventHandler(this.DataEditBox_TextChanged);
-            this.DataEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEditBox_KeyPress);
             // 
             // ImieEditBox
             // 
@@ -199,9 +199,9 @@
             // groupBoxAdres
             // 
             this.groupBoxAdres.Controls.Add(this.telefonEditBox);
+            this.groupBoxAdres.Controls.Add(this.kodPocztowyEditBox);
             this.groupBoxAdres.Controls.Add(this.mailEditBox);
             this.groupBoxAdres.Controls.Add(this.pocztaEditBox);
-            this.groupBoxAdres.Controls.Add(this.kodPocztowyEditBox);
             this.groupBoxAdres.Controls.Add(this.UlicaEditBox);
             this.groupBoxAdres.Controls.Add(this.MiejscEditBox);
             this.groupBoxAdres.Controls.Add(this.label10);
@@ -218,10 +218,19 @@
             // 
             // telefonEditBox
             // 
-            this.telefonEditBox.Location = new System.Drawing.Point(322, 165);
+            this.telefonEditBox.Location = new System.Drawing.Point(321, 169);
+            this.telefonEditBox.Mask = "(+99) 000-000-000";
             this.telefonEditBox.Name = "telefonEditBox";
-            this.telefonEditBox.Size = new System.Drawing.Size(149, 31);
-            this.telefonEditBox.TabIndex = 14;
+            this.telefonEditBox.Size = new System.Drawing.Size(161, 31);
+            this.telefonEditBox.TabIndex = 22;
+            // 
+            // kodPocztowyEditBox
+            // 
+            this.kodPocztowyEditBox.Location = new System.Drawing.Point(323, 123);
+            this.kodPocztowyEditBox.Mask = "00-000";
+            this.kodPocztowyEditBox.Name = "kodPocztowyEditBox";
+            this.kodPocztowyEditBox.Size = new System.Drawing.Size(150, 31);
+            this.kodPocztowyEditBox.TabIndex = 15;
             // 
             // mailEditBox
             // 
@@ -238,14 +247,6 @@
             this.pocztaEditBox.Size = new System.Drawing.Size(372, 31);
             this.pocztaEditBox.TabIndex = 12;
             this.pocztaEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
-            // 
-            // kodPocztowyEditBox
-            // 
-            this.kodPocztowyEditBox.Location = new System.Drawing.Point(323, 123);
-            this.kodPocztowyEditBox.Name = "kodPocztowyEditBox";
-            this.kodPocztowyEditBox.Size = new System.Drawing.Size(118, 31);
-            this.kodPocztowyEditBox.TabIndex = 11;
-            this.kodPocztowyEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEditBox_KeyPress);
             // 
             // UlicaEditBox
             // 
@@ -543,16 +544,12 @@
         private Label label7;
         private Label label8;
         private Label label9;
-        private TextBox PeselEditBox;
         private TextBox MiejsceEditBox;
-        private TextBox DataEditBox;
         private TextBox ImieEditBox;
         private TextBox NazwiskoEditBox;
         private TextBox MiejscEditBox;
         private TextBox pocztaEditBox;
-        private TextBox kodPocztowyEditBox;
         private TextBox UlicaEditBox;
-        private TextBox telefonEditBox;
         private TextBox mailEditBox;
         private Label label11;
         private Label label12;
@@ -571,5 +568,9 @@
         private ComboBox comboBoxRodzaj;
         private TextBox textBoxWyswietl;
         private Label labelNazwaEgzaminu;
+        private MaskedTextBox kodPocztowyEditBox;
+        private MaskedTextBox telefonEditBox;
+        private TextBox PeselEditBox;
+        private MaskedTextBox DataEditBox;
     }
 }

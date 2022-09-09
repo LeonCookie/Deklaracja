@@ -145,107 +145,188 @@ namespace Deklaracja
                 labelNazwaEgzaminu.Text = "";
             }
         }
+        string Sname, Slastname, Sdata, Shome,Spesel,Smiejsc,Sstreet,Sadress,Skodpoczt,Spoczta,Sphone,Smail  ;
+
+        private void pocztaEditBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void DataEditBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        Boolean Bsprawdz = true;
 
         private void buttonZatwierdz_Click(object sender, EventArgs e)
         {
+
             //checked lastname
             if (string.IsNullOrEmpty(NazwiskoEditBox.Text))
             {
                 NazwiskoEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
             }
             else
             {
+                Slastname = NazwiskoEditBox.Text;
+                Debug.WriteLine(Slastname);
                 NazwiskoEditBox.BackColor = Color.LimeGreen;
+                Bsprawdz = true;
             }
             //checked name
             if (string.IsNullOrEmpty(ImieEditBox.Text))
             {
                 ImieEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
             }
             else
             {
+                Sname = ImieEditBox.Text;
                 ImieEditBox.BackColor = Color.LimeGreen;
+                Bsprawdz = true;
             }
             //checked date and home
-            if (string.IsNullOrEmpty(DataEditBox.Text))
+            if (!DataEditBox.MaskCompleted)
             {
                 DataEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
             }
             else
             {
+                Sdata= DataEditBox.Text;
                 DataEditBox.BackColor = Color.LimeGreen;
+                Bsprawdz = true;
             }
+            
             if (string.IsNullOrEmpty(MiejsceEditBox.Text))
             {
+                
                 MiejsceEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
             }
             else
             {
+                Smiejsc= MiejsceEditBox.Text;
                 MiejsceEditBox.BackColor = Color.LimeGreen;
+                Bsprawdz = true;
             }
             //checked PESEL
-            if (string.IsNullOrEmpty(PeselEditBox.Text) || PeselEditBox.TextLength !=11)
+            if (string.IsNullOrEmpty(PeselEditBox.Text) || PeselEditBox.TextLength != 11)
             {
-                PeselEditBox.BackColor = Color.Red;
+                    PeselEditBox.BackColor = Color.Red;
+                MessageBox.Show("üle wpisano email");
+                Bsprawdz = false;
+
             }
-            else
-            {
-                //DODAC WARUNEK DLA LICZB PARZYSYCH I LITERT A
-                PeselEditBox.BackColor = Color.LimeGreen;
+             else       
+             {
+                    
+                    Spesel = PeselEditBox.Text;
+                    //DODAC WARUNEK DLA LICZB PARZYSYCH I LITERT A
+                    PeselEditBox.BackColor = Color.LimeGreen;
+                Bsprawdz = true;
+                //if () ;
             }
+            
+            
             //checked adress
             if (string.IsNullOrEmpty(MiejscEditBox.Text))
             {
                 MiejscEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
             }
             else
             {
+                Bsprawdz = true;
+                Sadress = MiejscEditBox.Text;
                 MiejscEditBox.BackColor = Color.LimeGreen;
             }
             //checked street
             if (string.IsNullOrEmpty(UlicaEditBox.Text))
             {
                 UlicaEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
             }
             else
             {
+                Sstreet = UlicaEditBox.Text;
                 UlicaEditBox.BackColor = Color.LimeGreen;
+                Bsprawdz = true;
             }
             //checked code for mail
-            if (string.IsNullOrEmpty(kodPocztowyEditBox.Text))
+            if (!kodPocztowyEditBox.MaskCompleted)
             {
                 kodPocztowyEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
+
             }
             else
             {
+                Bsprawdz = true;
+                Skodpoczt = kodPocztowyEditBox.Text;
                 kodPocztowyEditBox.BackColor = Color.LimeGreen;
             }
             //checked mail
             if (string.IsNullOrEmpty(pocztaEditBox.Text))
             {
                 pocztaEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
             }
             else
             {
+                Bsprawdz = true;
+                Spoczta = pocztaEditBox.Text;
                 pocztaEditBox.BackColor = Color.LimeGreen;
             }
             //checked phone number
-            if (string.IsNullOrEmpty(telefonEditBox.Text))
+            if (!telefonEditBox.MaskCompleted)
             {
                 telefonEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
+                MessageBox.Show("èle wpisono numer telefonu ");
             }
             else
-            {
-                telefonEditBox.BackColor = Color.LimeGreen;
+            { 
+                    Bsprawdz = true;
+                    Sphone = telefonEditBox.Text;
+                    telefonEditBox.BackColor = Color.LimeGreen;
+                
+                   
+             
             }
             //checked mail
             if (string.IsNullOrEmpty(mailEditBox.Text))
             {
                 mailEditBox.BackColor = Color.Red;
+                Bsprawdz = false;
+
             }
             else
             {
-                mailEditBox.BackColor = Color.LimeGreen;
+                int x = 1;
+                if (x==1)
+                {
+                    Smail=mailEditBox.Text;
+                    Bsprawdz = true;
+                    mailEditBox.BackColor = Color.LimeGreen;
+
+                }
+                else
+                {
+                    MessageBox.Show("nie uøyto '@' w mail");
+                }
+            }
+
+            if (Bsprawdz == true) //comboBoxTermin.SelectedIndex == -1 && comboBoxRodzaj.SelectedIndex == -1 && (RadioButtonInf.Checked || radioButtonProg.Checked) & (radioButtonPierw.Checked || radioButtonKolejny.Checked) && (checkBoxPisemny.Checked || checkBoxPraktyczny.Checked)) 
+            {
+                Debug.WriteLine("dobrze podane dane");
             }
 
 
