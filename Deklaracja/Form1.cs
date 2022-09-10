@@ -267,24 +267,44 @@ namespace Deklaracja
             //checked PESEL
             if (string.IsNullOrEmpty(PeselEditBox.Text) || PeselEditBox.TextLength != 11)
             {
-                    PeselEditBox.BackColor = Color.Red;
-                MessageBox.Show("Ÿle wpisano Pesel");
+                PeselEditBox.BackColor = Color.Red;
                 Isprawdz++;
+            }
+            else
+            {
+                if (ImieEditBox.Text.EndsWith("A") == true)
+                {
+                    int ostatnie = Convert.ToInt32(PeselEditBox.Text.ToString().Substring(9, 1));
+                    if (ostatnie % 2 == 0)
+                    {
+                        PeselEditBox.BackColor = Color.Green;
+                    }
+                    else
+                    {
+                        PeselEditBox.BackColor = Color.Red;
 
+                        Isprawdz++;
+                    }
+
+                }
+                else
+                {
+                    int ostatnie = Convert.ToInt32(PeselEditBox.Text.ToString().Substring(9, 1));
+                    if (ostatnie % 2 == 0)
+                    {
+                        PeselEditBox.BackColor = Color.Red;
+
+                        Isprawdz++;
+                    }
+                    else
+                    {
+                        PeselEditBox.BackColor = Color.Green;
+                    }
+                }
             }
-             else       
-             {
-                    
-                    Spesel = PeselEditBox.Text;
-                    //DODAC WARUNEK DLA LICZB PARZYSYCH I LITERT A
-                    PeselEditBox.BackColor = Color.LimeGreen;
-                
-                //if () ;
-            }
-            
-            
-            //checked adress
-            if (string.IsNullOrEmpty(MiejscEditBox.Text))
+
+                //checked adress
+                if (string.IsNullOrEmpty(MiejscEditBox.Text))
             {
                 MiejscEditBox.BackColor = Color.Red;
                 Isprawdz++;
