@@ -265,23 +265,26 @@ namespace Deklaracja
                 
             }
             //checked PESEL
+            int iPESEL = 0;
             if (string.IsNullOrEmpty(PeselEditBox.Text) || PeselEditBox.TextLength != 11)
             {
                 PeselEditBox.BackColor = Color.Red;
                 Isprawdz++;
+                iPESEL++;
             }
             else
             {
                 if (ImieEditBox.Text.EndsWith("A") == true)
                 {
-                    int ostatnie = Convert.ToInt32(PeselEditBox.Text.ToString().Substring(9, 1));
-                    if (ostatnie % 2 == 0)
+                    int iostatnie = Convert.ToInt32(PeselEditBox.Text.ToString().Substring(9, 1));
+                    if (iostatnie % 2 == 0)
                     {
-                        PeselEditBox.BackColor = Color.Green;
+                        PeselEditBox.BackColor = Color.LimeGreen;
                     }
                     else
                     {
                         PeselEditBox.BackColor = Color.Red;
+                        iPESEL++;
 
                         Isprawdz++;
                     }
@@ -289,17 +292,21 @@ namespace Deklaracja
                 }
                 else
                 {
-                    int ostatnie = Convert.ToInt32(PeselEditBox.Text.ToString().Substring(9, 1));
-                    if (ostatnie % 2 == 0)
+                    int iostatnie = Convert.ToInt32(PeselEditBox.Text.ToString().Substring(9, 1));
+                    if (iostatnie % 2 == 0)
                     {
                         PeselEditBox.BackColor = Color.Red;
-
+                        iPESEL++;
                         Isprawdz++;
                     }
                     else
                     {
-                        PeselEditBox.BackColor = Color.Green;
+                        PeselEditBox.BackColor = Color.LimeGreen;
                     }
+                }
+                if (iPESEL > 0)
+                {
+                    MessageBox.Show("Ÿle wpisano Pesel");
                 }
             }
 
@@ -342,35 +349,9 @@ namespace Deklaracja
                 Skodpoczt = kodPocztowyEditBox.Text;
                 kodPocztowyEditBox.BackColor = Color.LimeGreen;
             }
-            //checked mail
-            bool checkMail = false;
-            if (!string.IsNullOrEmpty(mailEditBox.Text))
-            {
-                Smail = mailEditBox.Text;
-                if (Smail.Contains("@") == false)
-                {
-                    mailEditBox.BackColor = Color.Red;
-                    Isprawdz++;
-                    MessageBox.Show("brakuje @ w mailu");
-                    checkMail = false;
-
-                }
-                else
-                {
-                    
-                    Smail = mailEditBox.Text;
-                    mailEditBox.BackColor = Color.LimeGreen;
-                    checkMail = true;
-                }
+           
                
 
-            }
-            else
-            {
-                mailEditBox.BackColor = Color.Red;
-                Isprawdz++;
-
-            }
             //poczta
             if(string.IsNullOrEmpty(pocztaEditBox.Text))
             {
@@ -404,7 +385,7 @@ namespace Deklaracja
             {
                 mailEditBox.BackColor = Color.Red;
                 Isprawdz++;
-                MessageBox.Show("nie u¿yto '@' w mail");
+                MessageBox.Show("brak '@' w mail");
 
             }
             else
