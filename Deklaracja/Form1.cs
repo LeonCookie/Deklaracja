@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -89,7 +88,10 @@ namespace Deklaracja
 
         private void checkBoxPraktyczny_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxPraktyczny.Checked == true)
+            {
+                Debug.WriteLine("Praktyczny");
+            }
         }
 
         private void comboBoxTermin_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,11 +100,7 @@ namespace Deklaracja
             comboBoxTermin.Items.Add("czerwiec");
         }
 
-        private void DataEditBox_KeyPress(object sender, KeyPressEventArgs e)//only numbers
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
+       
         private void RadioButtonInf_CheckedChanged(object sender, EventArgs e)
         {
             if (RadioButtonInf.Checked == true)
@@ -150,6 +148,25 @@ namespace Deklaracja
         }
         string Sname, Slastname, Sdata, Shome,Spesel,Smiejsc,Sstreet,Sadress,Skodpoczt,Spoczta,Sphone,Smail,SWyswietl  ;
 
+       
+
+        
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxPisemny_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (checkBoxPisemny.Checked == true)
+            {
+                Debug.WriteLine("Pisemny");
+            }
+
+        }
+
         private void mailEditBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -191,67 +208,68 @@ namespace Deklaracja
 
         }
 
-        Boolean Bsprawdz = true;
+        
 
         private void buttonZatwierdz_Click(object sender, EventArgs e)
         {
+            int Isprawdz = 0;
 
             //checked lastname
             if (string.IsNullOrEmpty(NazwiskoEditBox.Text))
             {
                 NazwiskoEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
             }
             else
             {
                 Slastname = NazwiskoEditBox.Text;
                 Debug.WriteLine(Slastname);
                 NazwiskoEditBox.BackColor = Color.LimeGreen;
-                Bsprawdz = true;
+               
             }
             //checked name
             if (string.IsNullOrEmpty(ImieEditBox.Text))
             {
                 ImieEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
             }
             else
             {
                 Sname = ImieEditBox.Text;
                 ImieEditBox.BackColor = Color.LimeGreen;
-                Bsprawdz = true;
+                
             }
             //checked date and home
             if (!DataEditBox.MaskCompleted)
             {
                 DataEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
             }
             else
             {
                 Sdata= DataEditBox.Text;
                 DataEditBox.BackColor = Color.LimeGreen;
-                Bsprawdz = true;
+                
             }
             
             if (string.IsNullOrEmpty(MiejsceEditBox.Text))
             {
                 
                 MiejsceEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
             }
             else
             {
                 Smiejsc= MiejsceEditBox.Text;
                 MiejsceEditBox.BackColor = Color.LimeGreen;
-                Bsprawdz = true;
+                
             }
             //checked PESEL
             if (string.IsNullOrEmpty(PeselEditBox.Text) || PeselEditBox.TextLength != 11)
             {
                     PeselEditBox.BackColor = Color.Red;
                 MessageBox.Show("üle wpisano Pesel");
-                Bsprawdz = false;
+                Isprawdz++;
 
             }
              else       
@@ -260,7 +278,7 @@ namespace Deklaracja
                     Spesel = PeselEditBox.Text;
                     //DODAC WARUNEK DLA LICZB PARZYSYCH I LITERT A
                     PeselEditBox.BackColor = Color.LimeGreen;
-                Bsprawdz = true;
+                
                 //if () ;
             }
             
@@ -269,11 +287,11 @@ namespace Deklaracja
             if (string.IsNullOrEmpty(MiejscEditBox.Text))
             {
                 MiejscEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
             }
             else
             {
-                Bsprawdz = true;
+                
                 Sadress = MiejscEditBox.Text;
                 MiejscEditBox.BackColor = Color.LimeGreen;
             }
@@ -281,26 +299,26 @@ namespace Deklaracja
             if (string.IsNullOrEmpty(UlicaEditBox.Text))
             {
                 UlicaEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
             }
             else
             {
                 Sstreet = UlicaEditBox.Text;
                 UlicaEditBox.BackColor = Color.LimeGreen;
-                Bsprawdz = true;
+                
             }
             //checked code for mail
             if (!kodPocztowyEditBox.MaskCompleted)
             {
                 kodPocztowyEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
 
             }
             else
             {
                 
 
-                Bsprawdz = true;
+                
                 Skodpoczt = kodPocztowyEditBox.Text;
                 kodPocztowyEditBox.BackColor = Color.LimeGreen;
             }
@@ -312,14 +330,14 @@ namespace Deklaracja
                 if (Smail.Contains("@") == false)
                 {
                     mailEditBox.BackColor = Color.Red;
-                    Bsprawdz = false;
+                    Isprawdz++;
                     MessageBox.Show("brakuje @ w mailu");
                     checkMail = false;
 
                 }
                 else
                 {
-                    Bsprawdz = true;
+                    
                     Smail = mailEditBox.Text;
                     mailEditBox.BackColor = Color.LimeGreen;
                     checkMail = true;
@@ -330,18 +348,18 @@ namespace Deklaracja
             else
             {
                 mailEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
-                
+                Isprawdz++;
+
             }
             //poczta
             if(string.IsNullOrEmpty(pocztaEditBox.Text))
             {
                 pocztaEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
             }
             else
             {
-                Bsprawdz = true;
+                
                 Spoczta = pocztaEditBox.Text;
                 pocztaEditBox.BackColor = Color.LimeGreen;
             }
@@ -349,12 +367,12 @@ namespace Deklaracja
             if (!telefonEditBox.MaskCompleted)
             {
                 telefonEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                
                 MessageBox.Show("èle wpisono numer telefonu ");
             }
             else
             { 
-                    Bsprawdz = true;
+                    
                     Sphone = telefonEditBox.Text;
                     telefonEditBox.BackColor = Color.LimeGreen;
                 
@@ -362,34 +380,29 @@ namespace Deklaracja
              
             }
             //checked mail
-            if (string.IsNullOrEmpty(mailEditBox.Text))
+            if (String.IsNullOrEmpty(mailEditBox.Text) || mailEditBox.Text.Contains("@") == false || (String.IsNullOrEmpty(mailEditBox.Text) && mailEditBox.Text.Contains("@") == false))
             {
                 mailEditBox.BackColor = Color.Red;
-                Bsprawdz = false;
+                Isprawdz++;
+                MessageBox.Show("nie uøyto '@' w mail");
 
             }
             else
             {
-                int x = 1;
-                if (x==1)
-                {
-                    Smail=mailEditBox.Text;
-                    Bsprawdz = true;
                     mailEditBox.BackColor = Color.LimeGreen;
-
-                }
-                else
-                {
-                    MessageBox.Show("nie uøyto '@' w mail");
-                }
+        
+                    
             }
+            Debug.WriteLine(Isprawdz);
 
-            if (Bsprawdz == true && checkMail) //comboBoxTermin.SelectedIndex == -1 && comboBoxRodzaj.SelectedIndex == -1 && (RadioButtonInf.Checked || radioButtonProg.Checked) & (radioButtonPierw.Checked || radioButtonKolejny.Checked) && (checkBoxPisemny.Checked || checkBoxPraktyczny.Checked)) 
+
+            
+            if (Isprawdz==0) //comboBoxTermin.SelectedIndex == -1 && comboBoxRodzaj.SelectedIndex == -1 && (RadioButtonInf.Checked || radioButtonProg.Checked) & (radioButtonPierw.Checked || radioButtonKolejny.Checked) && (checkBoxPisemny.Checked || checkBoxPraktyczny.Checked)) 
             {
                 Debug.WriteLine("dobrze podane dane");
                 bool isChecked1 = radioButtonPierw.Checked;
                 string value1 = "";
-                if (isChecked1)
+                if (isChecked1)     
                 {
                     value1 = radioButtonPierw.Text;
 
@@ -399,19 +412,25 @@ namespace Deklaracja
                     value1 = radioButtonKolejny.Text;
                 }
 
-                string value2 = "";
-                if (checkBoxPisemny.Checked)
+
+                string textCze = "";
+
+                if (checkBoxPisemny.Checked == true)
                 {
-                    value2 = checkBoxPisemny.Text;
+                    textCze = "pisemnej.";
+
                 }
-                else if (checkBoxPraktyczny.Checked)
+                else if (checkBoxPisemny.Checked == true && checkBoxPraktyczny.Checked == true)
                 {
-                    value2 = checkBoxPraktyczny.Text;
+                    textCze = "praktycznej i pisemnej1.";
                 }
-                else if (checkBoxPraktyczny.Checked && checkBoxPisemny.Checked)
+                else
                 {
-                    value2 = checkBoxPisemny.Text + " i " + checkBoxPraktyczny;
+                    textCze = "praktycznej.";
                 }
+
+
+
                 string nazwaegz = "";
                 if (comboBoxRodzaj.Text == "INF.02")
                 {
@@ -445,16 +464,16 @@ namespace Deklaracja
                 textBoxWyswietl.Text = "Deklaruje przystπpienie do egzaminu potwierdzajπcego kwalifikacje w zawodzie przeprowadzonego terminu" + " " + comboBoxTermin.Text + "\r\n" + "\r\n" +
                     "Dane osobowe ucznia" + "\r\n" +
                     " Nazwisko: \t" + NazwiskoEditBox.Text + "\r\n" +
-                    " Imie(imiona): " + ImieEditBox.Text + "\r\n" +
-                    " Data i miejsce urodzenia: " + DataEditBox.Text + " , " + MiejsceEditBox.Text + "\r\n" +
-                    " Numer Pesel: " + PeselEditBox.Text + "\r\n" + "\r\n" +
+                    " Imie(imiona):\t" + ImieEditBox.Text + "\r\n" +
+                    " Data i miejsce urodzenia: \t" + DataEditBox.Text + " , " + MiejsceEditBox.Text + "\r\n" +
+                    " Numer Pesel:\t " + PeselEditBox.Text + "\r\n" + "\r\n" +
                     "Adres korenspondencyjny" + "\r\n" +
-                    " miejscowoúÊ: " + MiejscEditBox.Text + "\r\n" +
-                    " ulica i numer domu: " + UlicaEditBox.Text + "\r\n" +
-                    " kod pocztowy i poczta: " + kodPocztowyEditBox.Text + " , " + pocztaEditBox.Text + "\r\n" +
-                    " nr telefonu z kierunkowym: " + telefonEditBox.Text + "\r\n" +
-                    " mail: " + mailEditBox.Text + "\r\n" + "\r\n" +
-                    "Deklaruje przystπpienie do egazminu " + value1 + " do " + value2
+                    " miejscowoúÊ:\t " + MiejscEditBox.Text + "\r\n" +
+                    " ulica i numer domu:\t " + UlicaEditBox.Text + "\r\n" +
+                    " kod pocztowy i poczta:\t " + kodPocztowyEditBox.Text + " , " + pocztaEditBox.Text + "\r\n" +
+                    " nr telefonu z kierunkowym:\t " + telefonEditBox.Text + "\r\n" +
+                    " mail:\t " + mailEditBox.Text + "\r\n" + "\r\n" +
+                    "Deklaruje przystπpienie do egazminu " + value1 + " do " + textCze
                     + "\r\n" + "\r\n" +
                     "Oznaczenie kwalifikacji zgodne z podstawπ programowπ: " + comboBoxRodzaj.Text + "\r\n" +
                     "Nazwa kwalifikacji: " + nazwaegz + "." + "\r\n" + "\r\n" +
@@ -466,18 +485,36 @@ namespace Deklaracja
 
 
         }
+
+        private void Deklaracja_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonZapisz_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sd = new SaveFileDialog();
+            SaveFileDialog save = new SaveFileDialog();
 
-            if (sd.ShowDialog() == DialogResult.OK)
+            save.FileName = "Deklaracja_Egzaminu.txt";
+
+            save.Filter = "Text File | *.txt";
+
+            if (save.ShowDialog() == DialogResult.OK)
+
             {
-                using (StreamWriter sw = new StreamWriter(sd.FileName))
-                {
-                    sw.Write(SWyswietl);
-                    sw.Flush();
-                    sw.Close();
-                }
+
+                StreamWriter writer = new StreamWriter(save.OpenFile());
+
+                
+
+                    writer.WriteLine(textBoxWyswietl.Text);
+
+                
+
+                writer.Dispose();
+
+                writer.Close();
+
             }
         }
 
@@ -485,6 +522,69 @@ namespace Deklaracja
         {
             
             e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
+            NazwiskoEditBox.BackColor = Color.White; 
         }
+        private void ImieEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ImieEditBox.BackColor = Color.White;
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
+        }
+        private void MiejscEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MiejscEditBox.BackColor = Color.White;
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
+        }
+        private void MiejsceEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            MiejsceEditBox.BackColor = Color.White;
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
+        }
+        private void kodPocztowyEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            kodPocztowyEditBox.BackColor = Color.White;
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
+        }
+        private void pocztaEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            pocztaEditBox.BackColor = Color.White;
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
+        }
+
+
+
+
+        private void DataEditBox_KeyPress(object sender, KeyPressEventArgs e)//only numbers
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            DataEditBox.BackColor = Color.White;
+
+        }
+        private void PeselEditBox_KeyPress(object sender, KeyPressEventArgs e)//only numbers
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            PeselEditBox.BackColor = Color.White;
+
+        }
+
+
+
+        private void UlicaEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            UlicaEditBox.BackColor = Color.White;
+        }
+        private void telefonEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            telefonEditBox.BackColor = Color.White;
+        }
+        private void mailEditBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            mailEditBox.BackColor = Color.White;
+        }
+
+       
+            
+        
+
+
     }
 }

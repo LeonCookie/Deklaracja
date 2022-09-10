@@ -29,7 +29,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Deklaracja));
             this.label1 = new System.Windows.Forms.Label();
             this.DeklaracjaLabel = new System.Windows.Forms.Label();
             this.groupBoxDaneUcznia = new System.Windows.Forms.GroupBox();
@@ -61,8 +60,6 @@
             this.radioButtonProg = new System.Windows.Forms.RadioButton();
             this.radioButtonPierw = new System.Windows.Forms.RadioButton();
             this.radioButtonKolejny = new System.Windows.Forms.RadioButton();
-            this.checkBoxPisemny = new System.Windows.Forms.CheckBox();
-            this.checkBoxPraktyczny = new System.Windows.Forms.CheckBox();
             this.buttonZatwierdz = new System.Windows.Forms.Button();
             this.buttonWyczysc = new System.Windows.Forms.Button();
             this.buttonZapisz = new System.Windows.Forms.Button();
@@ -71,6 +68,9 @@
             this.comboBoxRodzaj = new System.Windows.Forms.ComboBox();
             this.textBoxWyswietl = new System.Windows.Forms.TextBox();
             this.labelNazwaEgzaminu = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.checkBoxPraktyczny = new System.Windows.Forms.CheckBox();
+            this.checkBoxPisemny = new System.Windows.Forms.CheckBox();
             this.groupBoxDaneUcznia.SuspendLayout();
             this.groupBoxAdres.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -119,6 +119,7 @@
             this.DataEditBox.Size = new System.Drawing.Size(150, 31);
             this.DataEditBox.TabIndex = 23;
             this.DataEditBox.ValidatingType = typeof(System.DateTime);
+            this.DataEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEditBox_KeyPress);
             // 
             // PeselEditBox
             // 
@@ -128,7 +129,7 @@
             this.PeselEditBox.Size = new System.Drawing.Size(223, 31);
             this.PeselEditBox.TabIndex = 8;
             this.PeselEditBox.TextChanged += new System.EventHandler(this.PeselEditBox_TextChanged);
-            this.PeselEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DataEditBox_KeyPress);
+            this.PeselEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PeselEditBox_KeyPress);
             // 
             // MiejsceEditBox
             // 
@@ -138,7 +139,7 @@
             this.MiejsceEditBox.Size = new System.Drawing.Size(299, 31);
             this.MiejsceEditBox.TabIndex = 7;
             this.MiejsceEditBox.TextChanged += new System.EventHandler(this.MiejsceEditBox_TextChanged);
-            this.MiejsceEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
+            this.MiejsceEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MiejsceEditBox_KeyPress);
             // 
             // ImieEditBox
             // 
@@ -147,7 +148,7 @@
             this.ImieEditBox.Name = "ImieEditBox";
             this.ImieEditBox.Size = new System.Drawing.Size(528, 31);
             this.ImieEditBox.TabIndex = 5;
-            this.ImieEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
+            this.ImieEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ImieEditBox_KeyPress);
             // 
             // NazwiskoEditBox
             // 
@@ -223,6 +224,7 @@
             this.telefonEditBox.Name = "telefonEditBox";
             this.telefonEditBox.Size = new System.Drawing.Size(161, 31);
             this.telefonEditBox.TabIndex = 22;
+            this.telefonEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telefonEditBox_KeyPress);
             // 
             // kodPocztowyEditBox
             // 
@@ -231,6 +233,7 @@
             this.kodPocztowyEditBox.Name = "kodPocztowyEditBox";
             this.kodPocztowyEditBox.Size = new System.Drawing.Size(150, 31);
             this.kodPocztowyEditBox.TabIndex = 15;
+            this.kodPocztowyEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.kodPocztowyEditBox_KeyPress);
             // 
             // mailEditBox
             // 
@@ -239,6 +242,7 @@
             this.mailEditBox.Size = new System.Drawing.Size(265, 31);
             this.mailEditBox.TabIndex = 13;
             this.mailEditBox.TextChanged += new System.EventHandler(this.mailEditBox_TextChanged);
+            this.mailEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mailEditBox_KeyPress);
             // 
             // pocztaEditBox
             // 
@@ -248,7 +252,7 @@
             this.pocztaEditBox.Size = new System.Drawing.Size(372, 31);
             this.pocztaEditBox.TabIndex = 12;
             this.pocztaEditBox.TextChanged += new System.EventHandler(this.pocztaEditBox_TextChanged_1);
-            this.pocztaEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
+            this.pocztaEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pocztaEditBox_KeyPress);
             // 
             // UlicaEditBox
             // 
@@ -257,6 +261,7 @@
             this.UlicaEditBox.Name = "UlicaEditBox";
             this.UlicaEditBox.Size = new System.Drawing.Size(527, 31);
             this.UlicaEditBox.TabIndex = 10;
+            this.UlicaEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UlicaEditBox_KeyPress);
             // 
             // MiejscEditBox
             // 
@@ -265,7 +270,7 @@
             this.MiejscEditBox.Name = "MiejscEditBox";
             this.MiejscEditBox.Size = new System.Drawing.Size(528, 31);
             this.MiejscEditBox.TabIndex = 9;
-            this.MiejscEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NazwiskoEditBox_KeyPress);
+            this.MiejscEditBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MiejscEditBox_KeyPress);
             // 
             // label10
             // 
@@ -390,29 +395,6 @@
             this.radioButtonKolejny.UseVisualStyleBackColor = true;
             this.radioButtonKolejny.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // checkBoxPisemny
-            // 
-            this.checkBoxPisemny.AutoSize = true;
-            this.checkBoxPisemny.Enabled = false;
-            this.checkBoxPisemny.Location = new System.Drawing.Point(606, 843);
-            this.checkBoxPisemny.Name = "checkBoxPisemny";
-            this.checkBoxPisemny.Size = new System.Drawing.Size(113, 29);
-            this.checkBoxPisemny.TabIndex = 12;
-            this.checkBoxPisemny.Text = " Pisemnej";
-            this.checkBoxPisemny.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxPraktyczny
-            // 
-            this.checkBoxPraktyczny.AutoSize = true;
-            this.checkBoxPraktyczny.Enabled = false;
-            this.checkBoxPraktyczny.Location = new System.Drawing.Point(736, 844);
-            this.checkBoxPraktyczny.Name = "checkBoxPraktyczny";
-            this.checkBoxPraktyczny.Size = new System.Drawing.Size(126, 29);
-            this.checkBoxPraktyczny.TabIndex = 13;
-            this.checkBoxPraktyczny.Text = "Praktycznej";
-            this.checkBoxPraktyczny.UseVisualStyleBackColor = true;
-            this.checkBoxPraktyczny.CheckedChanged += new System.EventHandler(this.checkBoxPraktyczny_CheckedChanged);
-            // 
             // buttonZatwierdz
             // 
             this.buttonZatwierdz.Location = new System.Drawing.Point(606, 912);
@@ -494,11 +476,37 @@
             this.labelNazwaEgzaminu.Size = new System.Drawing.Size(0, 25);
             this.labelNazwaEgzaminu.TabIndex = 21;
             // 
+            // checkBoxPraktyczny
+            // 
+            this.checkBoxPraktyczny.AutoSize = true;
+            this.checkBoxPraktyczny.Enabled = false;
+            this.checkBoxPraktyczny.Location = new System.Drawing.Point(826, 842);
+            this.checkBoxPraktyczny.Name = "checkBoxPraktyczny";
+            this.checkBoxPraktyczny.Size = new System.Drawing.Size(126, 29);
+            this.checkBoxPraktyczny.TabIndex = 13;
+            this.checkBoxPraktyczny.Text = "Praktycznej";
+            this.checkBoxPraktyczny.UseVisualStyleBackColor = true;
+            this.checkBoxPraktyczny.CheckedChanged += new System.EventHandler(this.checkBoxPraktyczny_CheckedChanged);
+            // 
+            // checkBoxPisemny
+            // 
+            this.checkBoxPisemny.AutoSize = true;
+            this.checkBoxPisemny.Enabled = false;
+            this.checkBoxPisemny.Location = new System.Drawing.Point(644, 845);
+            this.checkBoxPisemny.Name = "checkBoxPisemny";
+            this.checkBoxPisemny.Size = new System.Drawing.Size(113, 29);
+            this.checkBoxPisemny.TabIndex = 12;
+            this.checkBoxPisemny.Text = " Pisemnej";
+            this.checkBoxPisemny.UseVisualStyleBackColor = true;
+            this.checkBoxPisemny.CheckedChanged += new System.EventHandler(this.checkBoxPisemny_CheckedChanged);
+            // 
             // Deklaracja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1648, 978);
+            this.Controls.Add(this.checkBoxPraktyczny);
+            this.Controls.Add(this.checkBoxPisemny);
             this.Controls.Add(this.labelNazwaEgzaminu);
             this.Controls.Add(this.textBoxWyswietl);
             this.Controls.Add(this.comboBoxRodzaj);
@@ -507,8 +515,6 @@
             this.Controls.Add(this.buttonZapisz);
             this.Controls.Add(this.buttonWyczysc);
             this.Controls.Add(this.buttonZatwierdz);
-            this.Controls.Add(this.checkBoxPraktyczny);
-            this.Controls.Add(this.checkBoxPisemny);
             this.Controls.Add(this.radioButtonProg);
             this.Controls.Add(this.RadioButtonInf);
             this.Controls.Add(this.listView1);
@@ -518,7 +524,6 @@
             this.Controls.Add(this.groupBoxDaneUcznia);
             this.Controls.Add(this.DeklaracjaLabel);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Deklaracja";
             this.Text = "Deklaracja";
@@ -563,8 +568,6 @@
         private RadioButton radioButtonProg;
         private RadioButton radioButtonPierw;
         private RadioButton radioButtonKolejny;
-        private CheckBox checkBoxPisemny;
-        private CheckBox checkBoxPraktyczny;
         private Button buttonZatwierdz;
         private Button buttonWyczysc;
         private Button buttonZapisz;
@@ -577,5 +580,8 @@
         private MaskedTextBox telefonEditBox;
         private TextBox PeselEditBox;
         private MaskedTextBox DataEditBox;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private CheckBox checkBoxPraktyczny;
+        private CheckBox checkBoxPisemny;
     }
 }
